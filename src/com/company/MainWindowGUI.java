@@ -10,10 +10,13 @@ public class MainWindowGUI extends JFrame{
     private JButton openWindowForUserInputButton;
     private JPanel mainRootPanel;
     private JLabel userInputLabel;
+    private JButton showDialogButton;
+
 
     MainWindowGUI() {
         setContentPane(mainRootPanel);
-        setPreferredSize(new Dimension(300, 400));
+        setPreferredSize(new Dimension(500, 400));
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         pack();
         setVisible(true);
 
@@ -21,11 +24,12 @@ public class MainWindowGUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 AskUserForInputGUI getUserInput = new AskUserForInputGUI(MainWindowGUI.this);
-
             }
         });
+
     }
 
+    //This is called from the other window
     public void sendData(String name, String favoriteColor) {
         userInputLabel.setText("Your name is " + name + " and your favorite color is " + favoriteColor);
     }
